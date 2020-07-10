@@ -185,11 +185,13 @@ module Lita::Handlers::Karma
 
     def modify(response, method_name)
       user = response.user
-
+      #Lita.logger.debug("user is #{user.name}")
       output = response.matches.map do |match|
-        get_term(match[0]).public_send(method_name, user)
+        #Lita.logger.debug("term is #{match[0]}")
+        if user.name != match[0].to_s
+          get_term(match[0]).public_send(method_name, user)
+        end  
       end
-
       response.reply output.join("; ")
     end
 
