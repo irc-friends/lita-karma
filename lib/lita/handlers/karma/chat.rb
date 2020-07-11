@@ -192,7 +192,7 @@ module Lita::Handlers::Karma
           get_term(match[0]).public_send(method_name, user)
         end  
       end
-      response.reply output.join("; ")
+      #response.reply output.join("; ")
     end
 
     # To ensure that constructs like foo++bar or foo--bar (the latter is
