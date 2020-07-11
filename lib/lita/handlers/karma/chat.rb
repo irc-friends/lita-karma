@@ -188,7 +188,7 @@ module Lita::Handlers::Karma
       #Lita.logger.debug("user is #{user.name}")
       output = response.matches.map do |match|
         #Lita.logger.debug("term is #{match[0]}")
-        if user.name != match[0].to_s
+        if user.name.upcase != match[0].to_s.upcase
           get_term(match[0]).public_send(method_name, user)
         end  
       end
